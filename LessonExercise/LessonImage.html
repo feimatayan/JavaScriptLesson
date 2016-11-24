@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function changeImage() {
+        element = document.getElementById("myimage");
+        if (element.src.match("mail")) {
+            element.src="blue.png";
+        } else {
+            element.src="mail.png";
+
+        }
+
+
+    }
+</script>
+<img src="mail.png" id="myimage" onclick="changeImage()">
+<p>点击图片改变图片</p>
+</body>
+</html>

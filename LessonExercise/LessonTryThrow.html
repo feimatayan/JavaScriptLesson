@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function myFunction() {
+        try {
+            var x = document.getElementById("demo").value;
+            if (x == "") throw "值为空";
+            if (isNaN(x)) throw "值为空";
+            if (x > 10) throw "值为空";
+            if (x < 5) throw "值为空";
+        }
+        catch (err){
+            var y=document.getElementById("mess");
+            y.innerHTML="错误：" + err + "。";
+        }
+
+
+    }
+
+</script>
+<h1>js</h1>
+<p>请输入5到10之间的数字</p>
+<input id="demo" type="text">
+<button type="button" onclick="myFunction()">input</button>
+<p id="mess"></p>
+
+</body>
+</html>

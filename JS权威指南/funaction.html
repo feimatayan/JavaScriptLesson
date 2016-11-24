@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var  a = [33,4,111,222,55];
+    console.log(a);
+    a.sort(function (a,b) {
+        return a-b;
+    });
+    console.log(a);
+    var  b = ['ant','Bug','cat','Dog'];
+    b.sort();
+    console.log(b);
+    b.sort(function (s,t) {
+        var a = s.toLowerCase();
+        var  b = t.toLowerCase();
+        if(a < b)return -1;
+        if (a > b) return 1;
+        return 0;
+    });
+    console.log(b);
+    //数组foreach
+    var t = [1,2,3,4,5];
+    function foreach(a,f,t) {
+        try {a.forEach(f,t);}
+        catch (e){
+            if (e === foreach.break)return;
+            else  throw e;
+        }
+
+    }
+    foreach.break = new Error("StopIteration");
+</script>
+</body>
+</html>
