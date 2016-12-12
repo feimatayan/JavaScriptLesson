@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script >
+//function extend(o,p) {
+//for (prop in p){
+//    o[prop] = p[prop];
+//}};
+//
+//    var objects = [{x:1,a:2},{y:2,a:3},{z:2,a:9}];
+//    var reduceObject = objects.reduce(function union(o,p) {
+//            return extend(extend({},o),p);
+//    });
+//    console.log(reduceObject);
+var a =[1,2,3,4,5];
+var sum = a.reduce(function (x,y) {
+    return x+y ;
+},0);
+console.log("dhdj" + sum);
+var sum1 = a.reduce(function (x,y) {
+    return x > y  ? x:y;
+});
+console.log(sum1);
+var sum2 = a.reduce(function (x,y) {
+    return x*y ;
+},1);
+console.log(sum2);
+
+var b = [2,2,3];
+var big = b.reduceRight(function (accumulator,value) {
+    return Math.pow(value,accumulator);
+},1);
+console.log("big"+big);
+//indexOf()和lastIndexOf()
+//在数组中查找所有出现的x，并返回一个匹配索引的数组
+    function findall(a,x) {
+        var results = [],
+            len = a.length,
+            pos = 0;
+        while (pos < len){
+            pos = a.indexOf(x,pos);
+            if(pos == -1) break;
+            results.push(pos);
+            pos = pos + 1;
+        }
+        return results;
+
+    }
+    var  findallArr = [1,23,5,66,5,7,10];
+    var resultsArr = findall(findallArr,5);
+    console.log("resultArr:"+resultsArr);
+   // Boolean isArr =  Array.isArray(findallArr);
+    console.log("isArr" + Array.isArray(findallArr));
+    var  isArray = Function.isArray || function (o) {
+            return typeof o === "object" && Object.prototype.toString.call(o) === "[object Array]";
+        }
+console.log("isArr" + isArray);
+
+    var a = {"0":"a","1":"b","2":"c",length:3};
+    Array.prototype.join.call(a,"+");
+    Array.prototype.slice.call(a,0);
+    Array.prototype.map.call(a,function (x) {
+        return x.toUpperCase();
+    });
+    console.log("Join" + Array.prototype.join.call(a,"+"));
+console.log("Join" + Array.prototype.slice.call(a,0));
+console.log("Join" + Array.prototype.map.call(a,function (x) {
+        return x.toUpperCase();
+    }));
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var o = {};
+    o[1] = "dd";
+    console.log("o:" + o);
+    console.log(o[1]);
+    console.log(o[0]);
+    var b = [];
+    b[1] = "bb";
+    console.log(b);
+
+    b[-1.23] = true;
+    console.log("b:",b);
+    var c = ["f","z","g"];
+    console.log("c:",c);
+    c[4] = "h";
+    console.log("c:",c);
+    c["1000"] = 0;
+    console.log(c);
+    //数组定义
+    /*
+    * 数组是对象的特殊形式，使用方括号访问数组元素就像方括号访问对象的属性一样，。
+    * JavaScript将指定的数字索引值转换成字符串--索引值1变成"1" --然后将其作为属性名来使用，索引值从数组转换为为字符串没什么特别之处：
+    *对常规对象也可以这么做
+    * 数组的特别之处在于，当使用小于的非负整数作为属性名时数组会自动维护其length属性值
+    *清晰的区分数组的索引和对象的属性名是非常有用的。所有的索引是属性名，但只有在0~2的32次方-2之间的整数属性名才是索引
+    * 所有数组都是对象，可以为其创建任意名字的属性，但如果使用的属性是数组的索引，数组的特殊行为就是将根据需要更新他们的length属性值
+    *注意，可以使用负数或非整数来索引数组。这种情况下，数值转换为字符串，字符串作为属性来用，既然名字不是非负整数，他就只能当做常规的对象属性
+    *而非数组的索引。同样，如果凑巧使用了是非负整数的字符串，它就当做数组索引，而非对象属性。当使用的一个浮点数和一个整数相等时情况也是一样
+    *
+    * */
+    var a1 = [,];
+    var a2 = [undefined];
+    0 in a1;
+    0 in a2;
+    console.log(0 in a1);
+    console.log(0 in a2);
+    var a = [1,2,3];
+    //a.length = 2;
+    //console.log("a："+a);
+   // Object.defineProperties(a,"length",{writable:false});
+    //console.log("a："+a);
+   // a.length = 0;//不能小于length
+   // console.log("a："+a);
+//数组元素的添加和删除
+    a = [];
+    a[0] = "zero";
+    a[1] = "one";
+    console.log("a:"+ a);
+    a = [];
+    a.push("zero");
+    a.push("one","two");
+    console.log("a:"+ a);
+//删除一个元素，就变成稀疏数组，不会修改数组的length属性，也不会将元素从高索引移下来填充已删除属性留下的😱
+    delete a[2];
+    console.log(a[2]);
+    console.log(2 in a);
+    console.log(a.length);
+    //2 in a;
+    //a.length;
+    //数组遍历
+    var keys = Object.keys(a);
+    console.log("keys:"+keys);
+   // a = [];
+    a["dd"] = "dj";
+    keys = Object.keys(a);
+
+    console.log("keys:"+keys);
+    //数组遍历
+    var  o = ["d","f","g"];
+    var keysO = Object.keys(o);
+    console.log("keysO:"+keysO);
+    console.log("keysO:"+keysO.length);
+    var  values = [];
+    for (var i = 0;i < keys.length;i++){
+
+        var key = keys[i];
+        values[i] = o[key];
+    }
+    console.log("values:"+values);
+    values = [];
+    for (var index in o){
+        if(!o.hasOwnProperty(i)) continue;
+        var value = o[index];
+        values[i] = value;
+    }
+    console.log("values:"+values);
+    //遍历数组元素的新方法
+    var data = [1,2,3,4,5];
+    var sumOfSquares = 0;
+    data.forEach(function (x) {
+        sumOfSquares += x * x;
+    });
+    console.log("sumOfSquares:"+sumOfSquares);
+    //多维数组
+    //var table = new Array()
+    var joinArr = [1,2,3];
+    console.log("joinArr:"+joinArr.join());
+    console.log("joinArr:"+joinArr.join(" "));
+//倒序
+    var  a1 = ["banana","cherry","apple"];
+    a1.sort();
+    console.log("a:"+a1);
+    var s = a1.join(",");
+    console.log("s:"+s);
+    //排序可以根据函数进行排序
+    var  a2 = ['ant',"Bug",'Dat',"cog"]
+    a2.sort();//区分大小写的排序
+    var a2Sort = a2.sort(function (s,t) {
+        var  a = s.toLowerCase();
+        var  b = t.toLowerCase();
+        if (a < b) return -1;
+        if (a > b) return 1;
+        return 0;
+
+    });
+    console.log("a2Sort:",a2Sort);
+//concat,方法创建并返回一个新数组，它的元素包括调用concat()的原始组元素和concat()的每个元素。如果这些参数中任何一个自身是数组，
+    //则连接的是数组的元素，而非数组本身。但要注意concat()不会递归扁平化数组的数组。concat()也不会修改调用上午aahu数组
+    var concatArr = [1,2,3];
+    concatArr.concat(4,5);
+    concatArr.concat([4,5]);
+    concatArr.concat([4,5],[6,7]);
+    concatArr.concat(4,[5,[6,7]])
+//slice 方法指定数组的一个片段或子数组。它的两个参数分别指定了片段的开始和结束的位置。返回的数组包含第一个参数指定的位置和所有到但不含第二个参数指定的位置之间的
+//如果只指定一个参数，返回的数组将包含从开始位置到数组结尾的所有元素。如参数中出现负数，他表示相对于数组中最后一个元素的位置。例如，参数-1指定了最后一个元素，而-3指定了倒数第三个元素，不会修改元素
+    var aSlice = [1,2,3,4,5];
+    aSlice.slice(0,3);
+    aSlice.slice(3);
+    aSlice.slice(1,-1);
+    aSlice.slice(-3,-2);
+    //splice，是在数组中插入或删除元素的通用方法。不同于slice（）和contact，splice()会修改调用的数组。能够从数组中删除元素、插入元素到数组中或者
+    //同时完成这两种操作。在插入或删除点之后的数组元素会根据需要增加或减少他们的索引值，因此数组的其他部分乃然保持连续的。splice。
+    //splice()的第一个参数指定了插入和（或）删除的起始位置。第二个参数指定了应该从数组中删除的元素的个数。如果
+//删除元素
+    var  aSplice = [1,2,3,4,5,6,7,8];
+    aSplice.splice(4);
+    console.log("aSplice:"+aSplice);
+    aSplice.splice(1,2);
+    console.log("aSplice:"+aSplice);
+    aSplice.splice(1,1);
+    console.log("aSplice:"+aSplice);
+//前两个参数指定了需要删除的数组元素，紧随其后的任意个数的参数指定了需要插入到数组中的元素，插入的位置从第一个参数指定的位置开始插入
+    var aSpliceInsert = [1,2,3,4,5];
+    aSpliceInsert.splice(2,0,'a','b');
+    aSpliceInsert.splice(2,2,[1,2],3);
+//push()和pop(),把使用数组当做栈来，在尾部添加或删除一个或者多个元素
+    var  stack = [];
+    stack.push(1,2);
+    console.log("stack:"+stack);
+    stack.pop();
+    console.log("stack:"+stack);
+    stack.push(3);
+    console.log("stack:"+stack);
+    stack.pop();
+    console.log("stack:"+stack);
+    stack.push([4,5]);
+    console.log("stack:"+stack);
+    stack.pop();
+    console.log("stack:"+stack);
+    stack.pop();
+    console.log("stack:"+stack);
+//unshift()和shift()，在头部添加或者删除元素，并将已存在的元素移动到更高索引的位置来获得足够的空间，最后返回数组新的长度
+    var  a = [];
+    a.unshift(1);
+    a.unshift(22);
+    a.shift();
+    a.unshift(3,[4,5]);
+    a.shift();
+    a.shift();
+    a.shift();
+    //toString()和toLocaleString()
+    console.log("toString:" + [1,2,3].toString());
+    console.log("toSting:"+["a","b","c"].toString());
+    console.log("toLocalSting:" + [1,[2,'c']].toLocaleString());
+    //ECMAScript 5中数组方法
+    /*
+    * 9个数组方法：遍历、映射、过滤、检测、简化和搜索数组
+    * 首先大多数方法的第一个参数接受一个函数，并且对数组的每个元素(或一些元素)调用一次该函数。如果是稀疏数组，对不存在的的元素不调用传递的函数。在大多数情况下
+    * 调用提供的函数使用三个参数：数组元素、元素的索引和数组本身。通常，只需要第一个参数值，可以忽略后两个参数。大多数
+    *大多数ECMAsript 5数组方法的第一个参数是一个函数，第二个函数是可选的。如果有第二个参数，则调用的函数被看做是第二个参数的方法，也就是说，在调用函数时传递进去的第二个函数作为它的this
+    * 关键字的值来使用。被调用的函数的返回值非常重要，但是不同的方法处理返回值的方式也不一样。
+    *ECMAScript 5中的数组方法都不会修改他们调用的原始数组。当然，传递给这些方法的函数是可以修改这些数组的
+    * */
+    /** 方法名：foreach
+     * 作用：从头至尾遍历数组，为每个元素调用指定的函数。如上所述，传递的函数作为foreach()的第一个参数。然后foreach使用三个参数调用该函数：数组元素、元素的索引和数组的本身。
+     * 如果只关心数组元素的值，可以编写只有一个参数的函数--额外的参数将忽略
+     *
+     */
+    var data = [1,2,3,4,5];
+    var sum = 0;
+    //计算数组元素的和值
+    data.forEach(function (value)  {
+        sum += value;
+    });
+    console.log("sum = "+ sum);
+    //每个数组元素的值自加1
+    data.forEach(function (v,i,a) {
+        a[i] = v + 1;
+    });
+    console.log("data = " + data);
+/*注意：
+* forEach()无法在所有元素都传递给调用的函数之前终止遍历。也就是说，没有像for循环中使用的相应的break语句。如果提前终止，必须把foreach()
+* 方法放在一个try块中，并能抛出一个异常。如果forEach()调用的函数抛出foreach。break异常，循环会提前终止
+* 不明白以后讲解，问
+* */
+//    function fEach(a) {
+//        for (var o in a){
+//            // a[o] = 'g';
+//        }
+//
+//    }
+//function foreach(a,f,t) {
+//    try {a.forEach(f,t);}
+//    catch (e){
+//        if (e === foreach.break) return;
+//        else  throw  e;
+//    }
+//
+//
+//}
+//foreach.break = new Error("StopIteration");
+//var  aEach = ["a","b","e","f"];
+//
+//var  resultArr = [];
+// foreach(aEach,fEach(aEach),this);
+    /*
+    * map()
+    * 调用的数组的每个元素传递给指定的函数，并返回一个数组，它包含函数的返回值
+    * return:返回新数组
+    * 注意：跟原数组长度一样，无论是不是稀疏数组
+    * */
+    var  a = [1,2,3];
+    var  b = a.map(function (x) {
+        return x * x;
+    });
+    console.log("b = "+ b);
+    /*
+    * filter()
+    * return:返回的数组元素是调用的数组的一个子集，传递的函数是用来逻辑判定的：该函数返回true或false
+    *
+    *
+    *
+    * */
+    var  a = [5,4,3,2,1];
+    var  smallvalues = a.filter(function (x) {
+        return x < 3;
+    });
+    console.log("smallvalues = "+smallvalues);
+    var  everyother = a.filter(function (x,i) {
+        return i % 2 == 0;
+    });
+    console.log("everyother = "+everyother);
+</script>
+</body>
+</html>

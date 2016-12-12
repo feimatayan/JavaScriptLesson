@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function printprops(o) {
+        for (var p in o){
+            console.log(p + ":" + o[p] + "\n");
+        }
+
+    }
+    var oArr = {"a":"1","b":"2"};
+    printprops(oArr);
+    var tempArr = [6,10,9];
+    var sortArr = tempArr.sort(function (a,b) {
+        return a-b;
+    });
+    console.log("sortArr:" + sortArr);
+
+    printprops(tempArr);
+//函数表达式有时定义后立即使用
+    var tensquared = (function (x) {
+        return x * x;
+    }(10));
+    console.log("tensquareed"+tensquared);
+    //计算机
+    var calcuator = {
+        operand1:5,
+        operand2:4,
+        add:function () {
+            this.result = this.operand1 + this.operand2;
+        }
+
+    };
+    calcuator.add();
+    calcuator.result;
+    console.log("result:"+calcuator.result);
+
+
+
+    //对象作用域
+    var  o = {
+        m:function () {
+            var self = this;
+            console.log(this === o);
+            f();
+            function f() {
+                console.log(this === o);
+                console.log(self === o);
+            }
+        }
+    }
+    o.m();
+    //可选形参
+    function getPorpertyName(o,/*optional*/a) {
+        if (a === undefined){ a = []}
+        for (var  property in o){
+            a.push[property];
+            console.log("property:"+property);
+        }
+        return a;
+
+    }
+    var  a = getPorpertyName(o);
+    console.log("a:"+a);
+    var  p = ["m","n"];
+    console.log("p:"+p);
+a = ["b","f"];
+    var q = getPorpertyName(p,a);
+    console.log("q:"+q);
+    console.log("a:"+a);
+
+    //caller 属性递归调用自身
+    var factorial = function (x) {
+        if (x <= 1) return 1;
+        return x * arguments.callee(x - 1);
+    }
+    console.log("factorial:" + factorial(10));
+    console.log("-------下边是利用闭包实现的私有属性存取器方法-----");
+/*
+* 下边是利用闭包实现的私有属性存取器方法
+*
+* */
+    //利用闭包实现的私有属性存取器方法
+    function addPrivateProperty(o,name,predicate) {
+        var value;//这是一个属性值
+        //getter方法简单地将其返回
+        o["get" + name] = function () {
+            return value;
+        }
+        //setter方法首先检查值是否合法，若不合法就抛出异常
+        //否则就将其存储起来
+        o["set" + name] = function (v) {
+            if (predicate && !predicate(v)){
+                throw Error("set" + name + ":invalid value" + v);
+
+            }else
+                value = v;
+
+        }
+    }
+    var o = {};//设置空对象
+    //增加属性存取器方法getName()和setName()
+    //确保只允许字符串值
+    addPrivateProperty(o,"Name",function (x) {
+        return typeof x ==  "string";
+    });
+    o.setName("Frank");//设置属性值
+    console.log(o.getName());//得到属性值
+   // o.setName(o);//试图设置一个错误类型的值
+//length属性
+    function check(args) {
+        var  actual = args.length;
+        var expected = args.callee.length;
+        if (actual !== expected)
+            throw  Error("Expesced" + expected + "args;got" + actual);
+    }
+    function f(x,y,z) {
+        check(arguments);
+        return x + y + z;
+    }
+    f(10,200,10);
+    console.log("success");
+    var  o = ["a","b"];
+    //console.log(  "call" + f.call(o));
+    //f.call(o);
+    //f.apply(o);
+
+    //函数式编程
+
+    var map = Array.prototype.map ? function (a,f) {
+        return a.map(f);
+    } : function (a,f) {
+        var resluts = [];
+        for (var i = 0,len = a.length; i < len;i++){
+            if(i in a)resluts[i] = f.call(null,a[i],i,a);
+        }
+        return resluts;
+
+    }
+    console.log("map:"+map);
+
+/*
+    //使用函数f()和可选的初始值将数组1减至一个数组
+    //如果Array.prototype.reduce存在的话，就使用这个方法
+    var reduce = Array.prototype.reduce ? function (a,f,initial) {//如果reduce()方法存在的话
+        if (arguments.length > 2)
+            return a.reduce(f,initial);//如果reduce()方法存在的话
+        else
+            reduce a.reduce(f);//否则没有初始值
+
+    } : function (a,f,initial) {
+        var i = 0,len = a.length,accumulator;
+        //以特定的初始值开始，否则第一个值取自a
+        if (arguments.length > 2) accumulator = initial;
+        else {//以特定的初始值开始，否则第一个值取自a
+            if (arguments.length > 2) accumulator = initial;
+            else  {//找到数组中第一个已定义的索引
+                while (i < len){
+                    if (i in a){
+                        accumulator = a[i++];
+                        break;
+                    }else {
+                        i++;
+                    }
+                }
+                if (i == len) throw  TypeError();
+
+            }
+
+        }
+        //对于数组中剩下的元素依次调用f()
+        while  (i < len){
+            if (i in a)
+                accumulator = f.call(undefined,accumulator,a[i],i,a);
+            i++;
+        }
+        return accumulator;
+
+
+    }
+    var  data = [1,1,3,5,5];
+    var  sum = function (x,y) {
+        return x + y;
+    }
+    var square = function (x) {
+        return x * x;
+    }
+
+    var  mean = reduce(data,sum) / data.length;
+    var  deviations = map(data,function (x) {
+        reduce x-mean;
+    });
+    var  stddev = Math.sqrt(reduce(map(deviations,square),sum) / (data.length - 1));
+    console.log("stddev:"+stddev);
+    */
+    //不完全函数
+    //实现一个工具函数将类数组对象（或对象）转换为真正的数组
+    var arrDic = ["a","b","c"];
+//    var temp = function array(a,n) {
+//        return Array.prototype.slice.call(a,n || 0);
+//    }
+    var temp = function array(a,n) {
+        return Array.prototype.slice.call(a,n);
+    }
+    temp(arrDic,3);
+    var square = function (x) {
+        return x * x;
+    }
+    console.log("arrDic:"+temp(arrDic,3));
+    console.log("arrDic:"+ square(4));
+//实现一个工具函数将类数组对象(或对象)转换为真正的数组
+    function array(a,n) {
+        return Array.prototype.slice.call(a,n || 0);
+    }
+//这个函数的实参传递至左侧
+    function  partialLeft(f /*,...*/) {
+        var args = arguments;//保存外部的实参数组
+        return function () {
+            var  a = array(args,1);//开始处理外部的第1个args
+            a = a.concat(array(arguments));//然后增加所有的内部实参
+            return f.apply(this,a);//基于这个实参列表调用f()
+        };
+    }
+    //这个函数带有三个实参
+    var  f = function (x,y,z) {
+        return x * (y - z);
+    };
+    //注意这三个不完全调用之间的区别
+    var  parLeft = partialLeft(f,2)(3,4);
+    console.log("parLeft:" + parLeft);
+</script>
+</body>
+</html>
