@@ -257,6 +257,224 @@
         return i % 2 == 0;
     });
     console.log("everyother = "+everyother);
+    /*
+    * filter()会跳过稀疏数组中缺少的元素,他的返回数组总是稠密的。为了压缩稀疏数组的空缺，代码如下
+    *
+    *
+    * */
+    var  sparse = [5,'ff',,47,'g',null,undefined,0,'ff'];
+    var  dense = sparse.filter(function () {
+        return true;
+    });
+    console.log("dense = " + dense);
+    //压缩空缺并删除undefined和null元素，可以这样使用filter()
+     var  undefinedArr = sparse.filter(function (x) {
+         return x != undefined && x != null;
+     });
+     console.log("undefinedArr = "+undefinedArr);
+     /*
+     * every()和some()
+     * 方法：是数组的逻辑判定：他们对数组元素应用指定的函数进行判定，返回true或false
+     *every:针对所有的量词当且紧当针对数组中的所有元素调用判定函数都返回true
+     * some在判定第一个返回true就返回true，如果判定函数一直返回false
+     * */
+     var a = [1,2,3,4,5];
+    var boolReturn = a.every(function (x) {
+         return x < 10;
+     });
+     console.log("a = "+boolReturn);
+     a.every(function (x) {
+         return x % 2 === 0;
+     });
+    console.log("a = "+a.every(function (x) {
+            return x % 2 === 0;
+        }));
+/*
+* reduce()和reduceRight()
+* 方法：使用指定的函数将数组元素进行组合，生成单个值。，也称注入和折叠
+* 格式：reduce(）需要两个参数，第二个是初始化，没有初始化的时候，第一个元素作为其初始值,第一个执行操作的函数
+* */
+var  a = [1,2,3,4,5];
+var  sum = a.reduce(function (x,y) {
+    return x + y;
+},0);
+var  product = a.reduce(function (x,y) {
+    return x * y;
+},1);
+var  max = a.reduce(function (x,y) {
+    return (x > y) ? x:y;
+});
+console.log("sum = " + sum);
+    console.log("product = " + product);
+    console.log("max = " + max);
+    //注意：在空数组上，不带初始值参数调用reduce（）将导致类型错误异常。如果调用
+    /*
+    * indexOf()和lastIndexOf()搜索整个数组中具有给定值的元素，返回找到的第一个元素的索引或者没有找到就返回-1
+    * indexOf(）从头至尾搜索，而lastIndexOf()则反向搜索
+    *不接受一个函数作为其参数。第一个参数是需要搜索的值，第二个参数是可选的；它指定数组中的
+    * 一个索引，从那里开始搜索，第二个参数也可以是负数，它代表相对数组末尾的偏移量，对于splice()方法，例如，-1指定数组的最后一个元素
+    *
+    * */
+    var  a = [0,1,2,1,0];
+    a.indexOf(1);
+    a.lastIndexOf();
+    //在数组中查找所有出现的x,并返回一个包含匹配索引的数组
+    function findall(a,x) {
+        var results = [],//将会返回的数组
+            len = a.length,
+            pos = 0;
+        while (pos < len){
+            pos = a.indexOf(x,pos);
+            if(pos === -1)break;
+            results.push(pos);
+            pos = pos + 1;
+        }
+        return results;
+
+
+    }
+    console.log("resultArr = "+findall(a,1));
+    /*
+    * 数组类型
+    *
+    * */
+    console.log("Type = " + Array.isArray([]));
+    console.log("Type = " + Array.isArray({}));
+/*
+* 类数组对象，JavaScript数组的有一些特性是其他对象没有的
+* 当有新的元素添加到列表中时，自动更新length属性
+* 设置length为一个较小值将截断数组
+* 从Array.prototype中继承一些有用的方法
+* 其类属性为"Array"
+* 这些特性让JavaScript数组和常规的对象有明显的区别。但是他们不是定义数组的本质特性。
+* 一种常常完全合理的看法把拥有一个数值length属性和对应非负整数属性的对象看做一种类型的数组
+* 实践中这些"类数组"对象实际上偶尔出现，虽然不能再他们之上直接调用数组方法或者期望length属性
+* 有什么特殊的行为，但是可以用针对真正数组遍历的代码来遍历他们。结论就是很多数组算法针对类数组对象工作的很好，
+* 就像针对真正的数组一样。如果算法把数组看成只读的或者如果他们至少保持数组长度不变，也尤其是这种情况
+* 以下代码为一个常规对象增加了一些属性使其变成类数组对象，然后遍历生成的伪数组的"元素"
+* */
+    var a = {};//从一个常规对象开始
+    //添加一些属性，称为"类数组"
+    var i = 0;
+    while (i < 10) {
+        a[i] = i * i;
+        i++;
+    }
+    a.length = i;
+    console.log("a = " + a);
+    //现在，当做真正的数组遍历它
+    var total = 0;
+    for (var  j = 0; j < a.length;j++)
+        total += a[j];
+    console.log("total = " + total);
+    var dict = {"d":"f"};
+    console.log("dict = " + dict);
+    /*
+    * 描述的Arguments对象就是一个类数组对象。在客户端JavaScript中，一些DOM方法（如document.getElementByTagName）
+    * 也返回类数组对象。下面有一个函数可以用来检测类数组对象
+    *
+    *
+    * */
+    //判定o是否是一个类数组对象
+    //字符串和函数有length属性，但是他们
+    //可以用typeof检测将其排除。在客户端JavaScript中，DOM文本节点
+    //也有length属性，需要用额外判断o.nodeType != 3将其排除
+    function  isArrayLike(o) {
+        if(o && typeof o === "object" && isFinite(o.length) && o.length >= 0 &&
+        o.length === Math.floor(o.length) && o.length < 4294967296
+        )//o非null、undefined等，o是对象，o.length是有限值，o.length为非负值，o.length < 2的32次方判读条件
+            return true;//o是类数组对象
+        else
+            return false;//否则它不是
+    }
+    var o = {"0":"g","1":"k",length:2};//一定要写length属性
+    console.log("o = " + o);
+    console.log("a = " + a);
+   // var b = []
+    //console.log("length:"+o.prototype.length);
+    console.log("isArrayLike = " + isArrayLike(o));
+    /*
+    * 看到在ECMAScript5z中字符串的行为与数组类似（并且有些浏览器在ECMScript5之前已经让字符串变成可索引的了）
+    * 类似上述的类数组对象的检测方法针对字符串常常返回false--他们通常最好当做字符串处理，而非数组
+    * JavaScript数组方法是特定定义为通用的，因此它们不仅应用在真正的数组而且在类数组对象上都能正确工作。
+    * 在ECMAScript 5中，所有的数组方法都是通用的。在ECMAScript3中，除了toString()和toLocaleString()以外的所有方法也是通用的。
+    * (concat()方法是一个特例：虽然可以用在类数组对象上，但他没有将那个对象扩充进返回的数组中。)
+    * 既然类数组对象没有继承自Array.prototype,那就不能在它们上面直接调用数组方法。尽管如此，
+    * 可以间接地使用Function.call方法调用
+    * */
+    var  a = {"0":"a","1":"b","2":"c",length:3};//类数组对象
+    Array.prototype.join.call(a,"+");//=>"a+b+c"
+    Array.prototype.slice.call(a,0);//【"a","b","c"]真正数组的副本
+    Array.prototype.map.call(a,function (x) {
+        return x.toUpperCase();
+    })//=>["A","B","C"];
+   // Array.slice(a,0);
+    //当用在类数组对象上时，数组方法的静态函数版本非常有用。但既然它们不是标准的，不能期望它们在所有的
+    //浏览器中都有定义，可以这样书写代码来保证使用它们之前是存在的
+    Array.join = Array.join || function (a,sep) {
+            return Array.prototype.join.call(a,sep);
+        };
+    Array.slice = Array.slice || function (a,from,to) {
+            return Array.prototype.slice.call(a,from,to);
+        };
+    Array.map = Array.map || function (a,f,thisArg) {
+            return Array.prototype.map.call(a,f,thisArg);
+        };
+    /*
+    * 作为数组的字符串
+    * 字符串的行为类似只读的数组，除了用charAt()方法来访问单个的字符以外，还可以使用方括号
+    *可索引的字符串的最大好处就是简单，用方括号代替了charAt()调用，这样更加简洁、可读并且可能更高效
+    * 字符串的行为类似于数组的事实是的通用的数组方法可以应用到字符串上
+    *
+    *
+    * */
+//    var s = test;
+//    s.charAt(0);
+//    s[1];
+    /*
+    * 针对字符串的typeof操作仍然返回"string",但是如果给Array。isArray
+    *
+    * */
+    s = "JavaScript";
+    Array.prototype.join.call(s," ");
+    Array.prototype.filter.call(s,function (x) {
+        return x.match(/[^aeiou]/);
+    }).join("");
+    //Using thisArg
+    function Counter() {
+        this.sum = 0;
+        this.count = 0;
+    };
+    Counter.prototype.add = function (array) {
+        array.forEach(function (entry) {
+            this.sum += entry;
+            ++this.count;
+        },this);
+    };
+    var obj = new Counter();
+    obj.add([2,5,9]);
+    console.log("count = " + obj.count);
+    console.log("sum = " + obj.sum);
+    s = "JavaScript";
+    Array.prototype.join.call(s," ");
+    Array.prototype.filter.call(s,function (x) {
+        return x.match(/[^aeiou]/);
+    }).join("");
+    //Using thisArg
+    function Counter() {
+        this.sum = 0;
+        this.count = 0;
+    };
+    Counter.prototype.add = function (array) {
+        array.forEach(function (entry) {
+            this.sum += entry;
+            ++this.count;
+        },this);
+    };
+    var obj = new Counter();
+    obj.add([2,5,9]);
+    console.log("count = " + obj.count);
+    console.log("sum = " + obj.sum);
 </script>
 </body>
 </html>

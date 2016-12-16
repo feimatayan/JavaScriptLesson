@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*函数
+    * 函数定义：
+    * 1、函数名称标识符。函数名称是函数声明语句必需的部分。它的用途就像变量的名字，新定义的函数对象会赋值给这个变量。对函数定义表达式来说，这个名字是可选的：如果存在，该名字只存在于函数体中，并指代
+    * 该函数对象本身
+    * 2、一对圆括号，其中包含由0个或者多个用逗号隔开的标识符组成的列表。这些标识符是函数的参数名称，它们就像函数体中的局部变量
+    * 3、一对花括号，其中包含0条或多条JavaScript语句，这些语句够成了函数体：一旦用函数，就会执行这些语句
+    *
+    *
+    * */
+//定义函数
+    function printprops(o) {
+        for (var p in o)
+            console.log(p + ":" + o[p] + "\n");
+    }
+    var  a = [1,2,4,"rr",6],b = {"g":"f"};
+
+    printprops(b);
+    /*
+    * this是一个关键字，不是变量，也不是属性名，JavaScript的语法不允许给this赋值
+    *和变量不同，关键字this没有作用域的限制，嵌套的函数不会从调用它的函数中继承this。如果嵌套函数
+    * 作为方法调用，其this的值指向调用它的对象。如果嵌套函数作为函数调用,其this的值指向调用它的对象。
+    * 如果嵌套函数作为函数调用，其this值不是全局对象(非严格模式下)就是undefined(严格模式下)
+    *很多人误以为调用嵌套函数时this会指向调用外层函数的上下文。如果你想访问这个外部函数的this值，需要将this的值保存在一个变量里，这个变量和内部函数都同在一个作用域内
+    * 通常使用变量self来保存this
+    *
+    *
+    *
+    * */
+
+    var o = {
+        m:function () {
+            var  self = this;
+            console.log("this = " + this);
+            console.log("o = " + o);
+            console.log(this === o);
+            f();
+            function f() {
+                console.log("this = " + this);
+                console.log("o = " + o);
+                console.log(this === o);
+                console.log(self === o);
+            }
+        }
+    }
+    o.m();
+/*构造函数调用
+* 创建一个新的空对象，这个对象继承自构造函数的prototype属性。构造函数试图初始化这个新创建的对象，并将这个对象用做其调用上下文，因此构造函数可以使用this关键字来引用这个新创建的对象。
+* 注意，尽管构造函数看起来想一个方法调用，它依然会使用这个新对象作为调用上下文。也就是说，在表达式new
+* 构造函数通常不使用return关键字，它们通常初始化新对象，当构造函数的函数体执行完毕时，它会显示返回。
+* 在这种情况下，构造函数调用表达式的计算结果就是这个新对象的值。然而如果构造函数显示地使用return语句返回一个对象
+* 那么调用表达式的值就是这个对象。如果构造函数使用return语句但没有指定返回值，或者返回一个原始值
+* 那么这时将忽略返回值，同时使用这个新对象作为调用结果
+*
+* */
+/*
+* 函数的实参和形参
+* JavaScript中的函数定义并未指定函数形参的类型，函数调用也未对传入的实参值做任何类型检查
+* 实际上，JavaScript函数调用甚至不检查传入形参的个数
+*
+*
+* */
+
+function max(/* ... */) {
+    var  max = Number.NEGATIVE_INFINITY;
+    console.log("max = " + max);
+    console.log("arguments = " + arguments);
+    //遍历实参，查找并记住最大值
+    for (var  i = 0; i < arguments.length;i++){
+        console.log("arguments" + i + " =" +  arguments);
+        console.log("arguments"  + " =" +  arguments[i]);
+
+        if (arguments[i] > max) max = arguments[i];
+    }
+    return max;
+}
+var  largest = max(1,10,100,2,3,1000,4,5,10000,6);
+console.log("largest = " + largest);
+
+/*
+* callee和caller属性
+* callee属性指代当前正在执行的函数
+*
+* */
+var factorial = function (x) {
+    if (x <= 1) return 1;
+    return x * arguments.callee(x - 1);
+}
+console.log("facorial = " + factorial(5));
+
+//
+//function arraycopy(/* array */ from,/* index */ from_start,/* array */ to,/* index */ to_start,/* integer */ length) {
+//
+//}
+//function easycopy(args) {
+//    arraycopy(args.from,args.from_start || 0,)
+//}
+    uniqueInteger.counter = 0;
+    function uniqueInteger() {
+        var ff = 0;
+        return uniqueInteger.counter++;
+    }
+    uniqueInteger();
+    console.log("counter = " + uniqueInteger.counter);
+    console.log("toString = " + uniqueInteger().toString());
+//将上次的 计算结果缓存起来。在函数式编程当中，这种缓存技巧叫做"记忆"
+    //返回()的带有记忆功能的版本
+    //只有当f()的实参的字符串表示都不相同时它才会工作
+    function memorize(f) {
+        var cache = {};//将值保存在闭包内
+
+        return function () {
+            console.log("cache = " + cache);
+            //将实参转换为字符串形式，将其用做缓存的键
+            console.log("arguments = " + arguments);
+
+            var key = arguments.length + Array.prototype.join.call(arguments,",");
+            console.log("key = " + key);
+            if (key in cache) return cache[key];
+            else return cache[key] = f.apply(this,arguments);
+        };
+    }
+    function gcd(a,b) {
+        var t;
+        if (a < b) t = b,b = a,a = t;
+        while (b != 0)t = b,b = a % b,a = t;
+        return a;
+    }
+    var  gcdmemo = memorize(gcd);
+    //gcdmemo(85,187);
+    console.log("gcdmemo = " + gcdmemo(85,187));
+</script>
+</body>
+</html>
