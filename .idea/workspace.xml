@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9330ca8-83d2-431d-b3df-14d44fc84ff9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS权威指南/ClassAndProperty.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS权威指南/Complex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS权威指南/Deck.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS权威指南/FunctionMethod.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS权威指南/RegularExperssion.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS权威指南/Iterable.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS权威指南/Rhino.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS权威指南/Window/Digital Clock.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS权威指南/Window/Factorials.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS权威指南/Window/客户端JavaScript.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS权威指南/ArrayMethod.html" afterPath="$PROJECT_DIR$/JS权威指南/ArrayMethod.html" />
     </list>
     <ignored path="JavaScriptLesson.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,53 +30,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FunctionMethod.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JS权威指南/FunctionMethod.html">
+      <file leaf-file-name="Iterable.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JS权威指南/Iterable.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="124" column="40" lean-forward="false" selection-start-line="124" selection-start-column="40" selection-end-line="124" selection-end-column="40" />
+            <state relative-caret-position="210">
+              <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClassAndProperty.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JS权威指南/ClassAndProperty.html">
+      <file leaf-file-name="Rhino.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JS权威指南/Rhino.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-760">
-              <caret line="0" column="15" lean-forward="false" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
+            <state relative-caret-position="165">
+              <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Deck.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JS权威指南/Deck.js">
+      <file leaf-file-name="客户端JavaScript.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JS权威指南/Window/客户端JavaScript.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="554">
-              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="38" column="27" lean-forward="false" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Digital Clock.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JS权威指南/Window/Digital Clock.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="365">
+              <caret line="45" column="9" lean-forward="true" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
               <folding>
-                <element signature="n#!!doc;n#Card#0" expanded="false" />
+                <marker date="1482140482000" expanded="true" signature="1178:1199" ph="{...}" />
+                <marker date="1482140482000" expanded="true" signature="1178:1213" ph="{...}" />
+                <marker date="1482140482000" expanded="true" signature="1178:1219" ph="{...}" />
+                <marker date="1482140482000" expanded="true" signature="1178:1223" ph="{...}" />
+                <marker date="1482140482000" expanded="true" signature="1178:1230" ph="{...}" />
+                <marker date="1482140482000" expanded="true" signature="1178:1234" ph="{...}" />
+                <marker date="1482140482000" expanded="true" signature="1178:1343" ph="{...}" />
+                <marker date="1482140482000" expanded="true" signature="1252:1300" ph="{...}" />
+                <marker date="1482140482000" expanded="true" signature="1310:1337" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegularExperssion.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/JS权威指南/RegularExperssion.html">
+      <file leaf-file-name="Factorials.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/JS权威指南/Window/Factorials.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="67" column="14" lean-forward="false" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Complex.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JS权威指南/Complex.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="76" column="36" lean-forward="false" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
+            <state relative-caret-position="470">
+              <caret line="44" column="29" lean-forward="false" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -184,6 +191,11 @@
         <option value="$PROJECT_DIR$/JS权威指南/Card.js" />
         <option value="$PROJECT_DIR$/JS权威指南/ClassAndProperty.html" />
         <option value="$PROJECT_DIR$/JS权威指南/RegularExperssion.html" />
+        <option value="$PROJECT_DIR$/JS权威指南/Iterable.html" />
+        <option value="$PROJECT_DIR$/JS权威指南/Rhino.html" />
+        <option value="$PROJECT_DIR$/JS权威指南/Window/客户端JavaScript.html" />
+        <option value="$PROJECT_DIR$/JS权威指南/Window/Digital Clock.html" />
+        <option value="$PROJECT_DIR$/JS权威指南/Window/Factorials.html" />
       </list>
     </option>
   </component>
@@ -194,7 +206,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="732" />
+    <option name="x" value="544" />
     <option name="y" value="23" />
     <option name="width" value="636" />
     <option name="height" value="707" />
@@ -217,6 +229,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -300,9 +313,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaScriptLesson" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaScriptLesson" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JS权威指南" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Window" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -414,18 +444,19 @@
       <workItem from="1480929907061" duration="2119000" />
       <workItem from="1480954607572" duration="32154000" />
       <workItem from="1481538135477" duration="10648000" />
-      <workItem from="1481596043787" duration="28504000" />
+      <workItem from="1481596043787" duration="28683000" />
+      <workItem from="1481897818505" duration="10247000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118223000" />
+    <option name="totallyTimeSpent" value="128649000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="732" y="23" width="636" height="707" extended-state="0" />
+    <frame x="544" y="23" width="636" height="707" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29245284" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29245284" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -464,41 +495,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/LessonExercise/LessonWrite01.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LessonExercise/LessonButton.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LessonExercise/LessonImage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LessonExercise/LessonStyle.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="39" lean-forward="false" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LessonExercise/LessonInput.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LessonExercise/LessonInnerHtml.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -711,7 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -727,7 +722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -743,6 +737,64 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1080">
           <caret line="72" column="6" lean-forward="false" selection-start-line="72" selection-start-column="6" selection-end-line="72" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS权威指南/FunctionMethod.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1860">
+          <caret line="124" column="40" lean-forward="false" selection-start-line="124" selection-start-column="40" selection-end-line="124" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS权威指南/ClassAndProperty.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="15" lean-forward="false" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS权威指南/Deck.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc;n#Card#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS权威指南/RegularExperssion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="73" column="13" lean-forward="true" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS权威指南/Complex.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="76" column="36" lean-forward="false" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS权威指南/funaction.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS权威指南/Function.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3090">
+          <caret line="206" column="25" lean-forward="true" selection-start-line="206" selection-start-column="25" selection-end-line="206" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -771,60 +823,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS权威指南/funaction.html">
+    <entry file="file://$PROJECT_DIR$/JS权威指南/Iterable.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+        <state relative-caret-position="210">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS权威指南/Function.html">
+    <entry file="file://$PROJECT_DIR$/JS权威指南/Rhino.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3090">
-          <caret line="206" column="25" lean-forward="true" selection-start-line="206" selection-start-column="25" selection-end-line="206" selection-end-column="25" />
+        <state relative-caret-position="165">
+          <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS权威指南/FunctionMethod.html">
+    <entry file="file://$PROJECT_DIR$/JS权威指南/Window/Digital Clock.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="124" column="40" lean-forward="false" selection-start-line="124" selection-start-column="40" selection-end-line="124" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS权威指南/Complex.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="76" column="36" lean-forward="false" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS权威指南/ClassAndProperty.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-760">
-          <caret line="0" column="15" lean-forward="false" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS权威指南/Deck.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="365">
+          <caret line="45" column="9" lean-forward="true" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
           <folding>
-            <element signature="n#!!doc;n#Card#0" expanded="false" />
+            <marker date="1482140482000" expanded="true" signature="1178:1199" ph="{...}" />
+            <marker date="1482140482000" expanded="true" signature="1178:1213" ph="{...}" />
+            <marker date="1482140482000" expanded="true" signature="1178:1219" ph="{...}" />
+            <marker date="1482140482000" expanded="true" signature="1178:1223" ph="{...}" />
+            <marker date="1482140482000" expanded="true" signature="1178:1230" ph="{...}" />
+            <marker date="1482140482000" expanded="true" signature="1178:1234" ph="{...}" />
+            <marker date="1482140482000" expanded="true" signature="1178:1343" ph="{...}" />
+            <marker date="1482140482000" expanded="true" signature="1252:1300" ph="{...}" />
+            <marker date="1482140482000" expanded="true" signature="1310:1337" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS权威指南/RegularExperssion.html">
+    <entry file="file://$PROJECT_DIR$/JS权威指南/Window/客户端JavaScript.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="67" column="14" lean-forward="false" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
+        <state relative-caret-position="180">
+          <caret line="38" column="27" lean-forward="false" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS权威指南/Window/Factorials.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="44" column="29" lean-forward="false" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
           <folding />
         </state>
       </provider>
